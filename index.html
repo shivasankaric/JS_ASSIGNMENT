@@ -1,0 +1,123 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS ASSIGNMENT</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+    
+    <nav id="navbar">
+        <h1>JS ASSIGNMENT</h1>
+        <h1>CRUD OPERATIONS</h1>
+    </nav>
+  
+    <main>
+        <section id="content">
+
+            <button onclick="createPopup()">Create new Album</button>
+
+                <div id="searchSort">
+                    <form id="search" >
+                        <input type="text" name="title" placeholder="Enter the title">
+                        <button onclick="searchAlbum(event);" value="Search">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </form>
+
+                    <form id="sort" >
+                        <select name="keys">
+                            <option value="id">Id</option>
+                            <option value="title">Title</option>
+                            <option value="userId">User Id</option>
+                        </select>
+                        <button onclick="sortAlbums(event,'asc');" value="sortAsc">
+                            <i class="fa-solid fa-arrow-up-wide-short"></i>
+                        </button>
+                        <button onclick="sortAlbums(event,'desc');" value="sortDesc">
+                            <i class="fa-solid fa-arrow-down-wide-short"></i></i>
+                        </button>
+                    </form>
+                </div>
+
+            <div id="list"></div>
+
+            <div id="viewPopup" class="popup none">
+                <div>
+                    <h1>ALBUM <span class="albumDetails"></span></h1>
+                    <img alt="Album Image" class="albumDetails">
+                    <table id="album">
+                        <tbody>
+                            <tr>
+                                <td>Id</td>
+                                <td class="albumDetails"></td>
+                            </tr>
+                            <tr>
+                                <td>Title</td>
+                                <td class="albumDetails"></td>
+                            </tr>
+                            <tr>
+                                <td>User Id</td>
+                                <td class="albumDetails"></td>
+                            </tr>
+                        </tbody>                
+                    </table> 
+                    <i class="fa-solid fa-xmark" onclick="closeViewPopUp()"></i>
+                </div>               
+            </div>
+
+            <div id="createPopup" class="popup none">
+                <form id="createAlbum" method="POST" onsubmit="createAlbum(event)">
+                    <h1>CREATE A NEW ALBUM</h1>
+                    <input type="text" name="title" placeholder="Enter the title"><br>
+                    <input type="number" name="userId" placeholder="Enter the User ID">
+                    <button onclick="createAlbum(event);" value="Create">Create</button>
+
+                    <i class="fa-solid fa-xmark" onclick="closeCreatePopUp()"></i>
+                </form>                
+            </div>
+
+            <div id="updatePopup" class="popup none">
+                <form id="updateAlbum" method="POST" onsubmit="createAlbum(event)">
+                    <h1>UPDATE THE NEW ALBUM</h1>
+                    <table>
+                            <tr>
+                                <td><label>ID</label></td>
+                                <td><input type="number" name="id" disabled></td>
+                            </tr>
+                            <tr>
+                                <td><label>TITLE</label></td>
+                                <td><input type="text" name="title" placeholder="Enter the title"></td>
+                            </tr>
+                            <tr>
+                                <td><label>USERID</label></td>
+                                <td><input type="number" name="userId" placeholder="Enter the User ID"></td>
+                            </tr>                                            
+                    </table>
+                    <button onclick="updateAlbum(event);" value="Update">Update</button>
+                    <i class="fa-solid fa-xmark" onclick="closeUpdatePopUp()"></i>
+                </form>                
+            </div>
+
+            <div id="deletePopup" class="popup none"></div>
+
+            <div id="loading" class="none">
+                <div class="spinner"></div>
+            </div>
+
+            
+        </section>
+        
+    </main>
+    
+    <script src="./assets/js/loading.js"></script>
+    <script src="./assets/js/create.js"></script>
+    <script src="./assets/js/read.js"></script>
+    <script src="./assets/js/update.js"></script>
+    <script src="./assets/js/delete.js"></script>
+    <script src="./assets/js/search.js"></script>
+    <script src="./assets/js/sort.js"></script>
+    
+</body>
+</html>

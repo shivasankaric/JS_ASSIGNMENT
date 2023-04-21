@@ -1,0 +1,220 @@
+:root{
+
+    /*Green theme*/
+    --darker: #40513B;
+    --dark: #609966;
+    --light: #9DC08B;
+    --lighter: #EDF1D6;
+    --white: #fff;
+
+    /* Red theme */
+    /* --darker: #E74646;
+    --dark: #FA9884;
+    --light: #FFE5CA;
+    --lighter: #FFF3E2;
+    --white: #fff; */
+
+    /* Blue theme */
+    /* --darker: #181823;
+    --dark: #537FE7;
+    --light: #C0EEF2;
+    --lighter: #E9F8F9;
+    --white: #fff; */
+}
+body{
+    margin: 0;
+}
+
+.none{ display: none;}
+.block{ display: block;}
+.flex{ display: flex;}
+
+#navbar{
+    background-color: var(--dark);
+    color: var(--lighter);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2rem;
+}
+
+
+#searchSort{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#searchSort>*{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#searchSort input, #searchSort select, #searchSort button{
+    height: 30px;
+    border: 1px solid var(--darker);
+    outline: 0;
+}
+
+#searchSort button{
+    margin: 0;
+    border-radius: 0;
+    width: fit-content;
+    border-left: 0px;
+}
+
+select {
+    width: 30%;
+    background-color: #fff;
+}
+
+#list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+button, #popup form input[type="submit"]{
+    padding: 10px;
+    background-color: var(--dark);
+    color: var(--white);
+    margin: 3%;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+}
+
+#content, #list div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;    
+}
+
+table{
+    border-collapse: collapse;
+}
+
+td{
+    border: 1px solid var(--darker);
+    padding: 10px;    
+}
+
+table tr:nth-child(odd){
+    background-color: var(--lighter);
+}
+
+table#albums tr:nth-child(1){
+    background-color: var(--dark);
+    color: var(--lighter);
+    text-align: center;
+}
+
+#load{
+    display: none;
+}
+
+.popup, #loading{
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,0.6);
+}
+
+.popup form, #viewPopup>div, #deletePopup>div{
+    position: relative;
+    background-color: var(--lighter);
+    width: 300px;
+    min-height: 200px;
+    padding: 3%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.popup h1{
+    text-align: center;
+    color: var(--darker);
+}
+
+.popup form input{
+    border: 0;
+    outline: 0;
+    border-bottom: 1px solid var(--darker);
+    background-color: var(--lighter);
+}
+
+#viewPopup div table{
+    margin: 5%;
+}
+
+#viewPopup>div img{
+    width: 100px;
+    height: 100px;
+    border-radius: 20px;
+}
+
+#deletePopup>div{
+    min-height: 100px;
+}
+
+#deletePopup .buttons{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#deletePopup .buttons button{
+    width: 40%;
+}
+
+#updateAlbum table td{
+    border: 0;
+}
+
+.fa-xmark{
+    position: absolute;
+    top: 3%;
+    right: 3%;
+}
+
+i{
+    cursor: pointer;
+    color: var(--darker);
+}
+
+#searchSort i{
+    color: var(--lighter);
+}
+
+#loading{
+    background-color: rgba(0,0,0,0.2);
+}
+
+.spinner{
+    width: 30px;
+    height: 30px;
+    border: 5px solid var(--light);
+    border-top: 5px solid var(--dark);
+    border-radius: 100%;
+    animation: spin 1s infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg)}
+    to { transform: rotate(360deg) }
+}
+
+
+
+@media screen and (max-width:768px) {
+    #navbar{
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+}
