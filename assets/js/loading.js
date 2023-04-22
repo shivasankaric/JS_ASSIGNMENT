@@ -1,9 +1,3 @@
-//Options for url while fetching
-const listOptions = {
-    sortProperty : "id",
-    order : "desc"
-}
-
 //Display loading spinner
 const displayLoading = () =>{
     const loading = document.getElementById("loading");

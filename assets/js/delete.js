@@ -33,9 +33,6 @@ const deleteAlbum = async(albumId) =>{
         hideLoading();
         console.log("Success:", result);
 
-        //Change the number of albums
-        numberOfAlbums = await getNumberOfAlbums();
-
         //Close the popup
         closeDeletePopUp();
 

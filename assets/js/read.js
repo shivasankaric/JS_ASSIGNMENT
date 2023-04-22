@@ -66,7 +66,6 @@ const updateTable = (album) => {
 
 //loadAlbums
 const loadAlbums = () => {
-    console.log("Load albums function is invoked!")
     let loadedAlbumsNumber = (document.querySelectorAll(".album")).length;
 
     let start = loadedAlbumsNumber;
@@ -82,7 +81,6 @@ const loadAlbums = () => {
 
 
     loadedAlbumsNumber = (document.querySelectorAll(".album")).length;
-    console.log(loadedAlbumsNumber);
 
     document.getElementById("load").style.display = (loadedAlbumsNumber === numberOfAlbums) ? "none" : "block";
 
