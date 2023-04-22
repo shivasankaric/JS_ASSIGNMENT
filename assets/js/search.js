@@ -1,21 +1,21 @@
 //Search album based on the title
-const searchAlbum = async(e) =>{
+const searchAlbum = (e) =>{
     e.preventDefault();
-
-    displayLoading();
 
     const form = document.getElementById("search");
     const submitter = document.querySelector("button[value=Search]");
 
     const data = new FormData(form, submitter);
 
-    for(let [key,value] of data){
-        api += `${key}=${value}`;
-    }
+    let [[key,value]] = data;
+
+    const searchAlbums = albumsData.filter( album => album.title.includes(value));
+
+    console.log(searchAlbums);
     
-    if(albums.length){
+    if(searchAlbums.length){
         displayTable();
-        updateTable(albums);
+        searchAlbums.map( album => updateTable(album));
     }
     else{
         document.getElementById("list").innerHTML = "<h1>Not found!</h>"
