@@ -1,4 +1,5 @@
-//number of albums
+//Albums data
+let albumsData = [];
 let numberOfAlbums;
 
 //Pop up the create form
@@ -9,14 +10,6 @@ const createPopup = () => {
 //Close popup form
 const closeCreatePopUp = () => {
     document.getElementById("createPopup").classList.remove("flex");
-}
-
-//Count the number of albums
-const getNumberOfAlbums = async() =>{
-    const api = "https://jsonplaceholder.typicode.com/albums/";
-    const response = await fetch(api);
-    const data = await response.json();
-    return data.length;
 }
 
 //Create a new album and add album to the list
@@ -49,9 +42,6 @@ const createAlbum = async (e) => {
 
         hideLoading();
         console.log("Success:", result);
-
-        //Change the number of albums
-        numberOfAlbums = await getNumberOfAlbums();
 
         //display the table after updation
         read();

@@ -9,15 +9,9 @@ const searchAlbum = async(e) =>{
 
     const data = new FormData(form, submitter);
 
-    let api = "https://jsonplaceholder.typicode.com/albums?"
     for(let [key,value] of data){
         api += `${key}=${value}`;
     }
-
-    const response = await fetch(api);
-    const albums = await response.json();
-
-    hideLoading();
     
     if(albums.length){
         displayTable();

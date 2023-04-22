@@ -1,8 +1,6 @@
 //Pop up the create form
 const updatePopup = async(albumId) => {
-    displayLoading();
-    await editAlbum(albumId);
-    hideLoading();
+    editAlbum(albumId);
     document.getElementById("updatePopup").classList.add("flex");
 }
 
@@ -12,17 +10,14 @@ const closeUpdatePopUp = () => {
 }
 
 //Edit the album
-const editAlbum = async(albumId) => {
-    const api = "https://jsonplaceholder.typicode.com/albums/";
-    const response = await fetch(api+albumId);
-    const album = await response.json();
+const editAlbum = (albumId) => {
+
+    const album = albumsData.find( album => album.id === albumId);
 
     const inputs = document.querySelectorAll("#updateAlbum input");
     inputs[0].value = album.id;
     inputs[1].value = album.title;
     inputs[2].value = album.userId;
-
-    hideLoading();
 }
 
 // Update the album
@@ -57,8 +52,6 @@ const updateAlbum = async(e) => {
             console.log( "Success:", result)
         });
 
-        //Change the number of albums
-        numberOfAlbums = await getNumberOfAlbums();
 
         //Close the popup
         closeUpdatePopUp();

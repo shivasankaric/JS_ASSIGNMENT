@@ -3,25 +3,23 @@ const getAlbumImage = async(albumId) => {
     const api = `https://jsonplaceholder.typicode.com/albums/${albumId}/photos`;
     const response = await fetch(api);
     const images = await response.json();
+    hideLoading();
     return images[0].thumbnailUrl;
 }
 
 
 //Pop up the album details
 const viewPopup = async(albumId) => {
+
     displayLoading();
-
-    const api = `https://jsonplaceholder.typicode.com/albums/${albumId}`;
-    const response = await fetch(api);
-    const album = await response.json();
-
+    const album = albumsData.find( album => album.id === albumId);
+    
     const albumDetails = document.querySelectorAll(".albumDetails");
     albumDetails[1].src = await getAlbumImage(album.id);
     albumDetails[0].innerHTML = albumDetails[2].innerHTML =album.id;
     albumDetails[3].innerHTML = album.title;
     albumDetails[4].innerHTML = album.userId;
 
-    hideLoading();
     document.getElementById("viewPopup").classList.add("flex");
 }
 
@@ -53,60 +51,59 @@ const displayTable = () =>{
 }
 
 //Update the table with the loaded albums
-const updateTable = (albums) => {
+const updateTable = (album) => {
     const table = document.querySelector('#albums tbody');
-    albums.map(album => {
-        table.innerHTML += 
-        `<tr class = "album" >
-            <td>${album.id}</td>
-            <td>${album.title}</td>
-            <td>${album.userId}</td>
-            <td><i onclick = viewPopup(${album.id}) class="fa-solid fa-eye"></i></td>
-            <td><i onclick = updatePopup(${album.id}) class="fa-solid fa-pen-to-square"></i></td>
-            <td><i onclick = deletePopup(${album.id}) class="fa-solid fa-trash-can"></i></td>
-        </tr>`
-    })
+    table.innerHTML += 
+    `<tr class = "album" >
+        <td>${album.id}</td>
+        <td>${album.title}</td>
+        <td>${album.userId}</td>
+        <td><i onclick = viewPopup(${album.id}) class="fa-solid fa-eye"></i></td>
+        <td><i onclick = updatePopup(${album.id}) class="fa-solid fa-pen-to-square"></i></td>
+        <td><i onclick = deletePopup(${album.id}) class="fa-solid fa-trash-can"></i></td>
+    </tr>`
 }
 
 //loadAlbums
-const loadAlbums = async() => {
-    displayLoading();
-
+const loadAlbums = () => {
+    console.log("Load albums function is invoked!")
     let loadedAlbumsNumber = (document.querySelectorAll(".album")).length;
-    const currentPage = Math.ceil(loadedAlbumsNumber/20);
-    const api = `https://jsonplaceholder.typicode.com/albums?_sort=${listOptions.sortProperty}&_order=${listOptions.order}&_page=${currentPage + 1}&_limit=20`;
 
-    const response = await fetch(api);
-    const albums = await response.json();
-    updateTable(albums);
-    hideLoading();
+    let start = loadedAlbumsNumber;
+    let end = (loadedAlbumsNumber + 20) <= albumsData.length ? 
+            (loadedAlbumsNumber + 20) :
+            (albumsData.length - loadedAlbumsNumber);
+
+    if( start > end ) return;
+
+    for(let i=start;i<end;i++) {
+        updateTable(albumsData[i]);
+    }
 
 
     loadedAlbumsNumber = (document.querySelectorAll(".album")).length;
+    console.log(loadedAlbumsNumber);
 
     document.getElementById("load").style.display = (loadedAlbumsNumber === numberOfAlbums) ? "none" : "block";
 
 }
 
 //Retrieve the albums from the api
-const read = async() => {
+const read = async() => {   
     displayLoading();
 
-    listOptions.sortProperty = "id";
-    listOptions.order = "desc";
-    
-    const api = "https://jsonplaceholder.typicode.com/albums?_sort=id&_order=desc&_page=1&_limit=20";
+    const api = "https://jsonplaceholder.typicode.com/albums";
     const response = await fetch(api);
-    const albums = await response.json();
+    albumsData = await response.json();
+    numberOfAlbums = albumsData.length;
+
+    await displayTable();
+    
+    albumsData.sort((a,b) => a>b ? 1 : -1);
+
+    for(let i=0;i<20;i++) updateTable(albumsData[i]);
 
     hideLoading();
-
-    displayTable();
-    await updateTable(albums);
-    
-
-    //number of albums
-    numberOfAlbums = await getNumberOfAlbums();
 
     document.getElementById("load").style.display = "block";
 }
