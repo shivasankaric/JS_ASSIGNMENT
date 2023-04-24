@@ -30,18 +30,19 @@ const updateAlbum = async(e) => {
     const submitter = document.querySelector("button[value=Update]");
     const data = new FormData(form, submitter);
 
-    const album = {};
+    const newAlbum = {};
 
     for(let [key,value] of data){
-        album[key] = value;
+        newAlbum[key] = value;
     }
 
     const id = document.querySelector("#updateAlbum input[name=id]").value;
+    newAlbum.id = +id;
 
     try{
         await fetch(api+id, {
             method:'PATCH',
-            body : JSON.stringify(album),
+            body : JSON.stringify(newAlbum),
             headers : {
                 "Content-Type" : "application/json; charset=UTF-8"
             }
@@ -52,6 +53,8 @@ const updateAlbum = async(e) => {
             console.log( "Success:", result)
         });
 
+        const index = albumsData.findIndex(album => album.id === newAlbum.id);
+        albumsData[index] = newAlbum;
 
         //Close the popup
         closeUpdatePopUp();

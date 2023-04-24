@@ -29,6 +29,9 @@ const createAlbum = async (e) => {
         newAlbum[key] = value;
     }
 
+    sortAsc();
+    newAlbum["id"] = albumsData[numberOfAlbums - 1].id + 1;
+
     try {
         const response = await fetch(api, {
           method: 'POST',
@@ -42,6 +45,10 @@ const createAlbum = async (e) => {
 
         hideLoading();
         console.log("Success:", result);
+
+        albumsData.push(newAlbum);
+
+        numberOfAlbums++;
 
         //display the table after updation
         read();

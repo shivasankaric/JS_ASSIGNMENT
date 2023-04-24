@@ -30,11 +30,16 @@ const deleteAlbum = async(albumId) =>{
         });
         result = await response.json();
 
+        const index = albumsData.findIndex( album => album.id === albumId);
+        delete albumsData[index];
+
         hideLoading();
         console.log("Success:", result);
 
         //Close the popup
         closeDeletePopUp();
+
+        numberOfAlbums--;
 
         //Display the table with the list of albums after deletion
         read();

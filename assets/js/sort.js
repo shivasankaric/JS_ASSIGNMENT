@@ -19,3 +19,12 @@ const sortAlbums = (e,order) =>{
     document.getElementById("load").style.display = "block";
 
 }
+
+//Sort albums by id in ascending order
+function sortAsc(){
+    albumsData.sort((a,b) => a.id>b.id ? 1 : -1);
+}
+//Sort albums by id in descending order
+function sortDesc(){
+    albumsData.sort((a,b) => a.id<b.id ? 1 : -1);
+}

@@ -9,7 +9,7 @@ const searchAlbum = (e) =>{
 
     let [[key,value]] = data;
 
-    const searchAlbums = albumsData.filter( album => album.title.includes(value));
+    const searchAlbums = albumsData.filter( album => album.title.includes(value.trim()));
 
     console.log(searchAlbums);
     

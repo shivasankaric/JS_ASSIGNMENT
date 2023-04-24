@@ -4,7 +4,7 @@ const getAlbumImage = async(albumId) => {
     const response = await fetch(api);
     const images = await response.json();
     hideLoading();
-    return images[0].thumbnailUrl;
+    return (images.length) ? images[0].thumbnailUrl : "https://www.w3schools.com/howto/img_avatar2.png";
 }
 
 
@@ -69,9 +69,9 @@ const loadAlbums = () => {
     let loadedAlbumsNumber = (document.querySelectorAll(".album")).length;
 
     let start = loadedAlbumsNumber;
-    let end = (loadedAlbumsNumber + 20) <= albumsData.length ? 
+    let end = (loadedAlbumsNumber + 20) === numberOfAlbums ? 
             (loadedAlbumsNumber + 20) :
-            (albumsData.length - loadedAlbumsNumber);
+            (numberOfAlbums - loadedAlbumsNumber);
 
     if( start > end ) return;
 
@@ -87,24 +87,26 @@ const loadAlbums = () => {
 }
 
 //Retrieve the albums from the api
-const read = async() => {   
+const read = () => {   
     displayLoading();
-
-    const api = "https://jsonplaceholder.typicode.com/albums";
-    const response = await fetch(api);
-    albumsData = await response.json();
-    numberOfAlbums = albumsData.length;
-
-    await displayTable();
+    displayTable();
     
-    albumsData.sort((a,b) => a>b ? 1 : -1);
-
+    sortDesc();
     for(let i=0;i<20;i++) updateTable(albumsData[i]);
-
-    hideLoading();
 
     document.getElementById("load").style.display = "block";
 }
 
+const fetchAlbums = async() => {
+    displayLoading();
+    const api = "https://jsonplaceholder.typicode.com/albums";
+    const response = await fetch(api);
+    albumsData = await response.json();
+    numberOfAlbums = albumsData.length;
+    hideLoading();
+
+    read();
+}
+
 //Display the table with the list of albums
-read();
+fetchAlbums();

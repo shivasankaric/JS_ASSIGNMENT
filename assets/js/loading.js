@@ -4,7 +4,7 @@ const displayLoading = () =>{
     loading.classList.add("flex");
     setTimeout(()=>{
         loading.classList.remove("flex");
-    },5000);
+    },2000);
 }
 
 //Hide loading spinner
