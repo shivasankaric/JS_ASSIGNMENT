@@ -22,7 +22,6 @@ const closeDeletePopUp = () => {
 //Delete a particular album
 const deleteAlbum = async(albumId) =>{
     displayLoading();
-    const api = "https://jsonplaceholder.typicode.com/albums/";
     
     try{
         const response = await fetch(api + albumId, {

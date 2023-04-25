@@ -24,7 +24,6 @@ const editAlbum = (albumId) => {
 const updateAlbum = async(e) => {
     e.preventDefault();
     displayLoading();
-    const api = "https://jsonplaceholder.typicode.com/albums/";
 
     const form = document.getElementById("updateAlbum");
     const submitter = document.querySelector("button[value=Update]");

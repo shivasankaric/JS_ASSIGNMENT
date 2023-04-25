@@ -1,6 +1,8 @@
 //Albums data
 let albumsData = [];
 let numberOfAlbums;
+const api = "https://jsonplaceholder.typicode.com/albums/";
+const limit = 20;
 
 //Pop up the create form
 const createPopup = () => {
@@ -15,9 +17,7 @@ const closeCreatePopUp = () => {
 //Create a new album and add album to the list
 const createAlbum = async (e) => {
     e.preventDefault();
-    displayLoading();
-
-    const api = "https://jsonplaceholder.typicode.com/albums/";    
+    displayLoading();    
 
     const form = document.getElementById("createAlbum");
     const submitter = document.querySelector("button[value=Create]");
@@ -53,6 +53,7 @@ const createAlbum = async (e) => {
         //display the table after updation
         read();
         
+        form.reset();
         closeCreatePopUp();
         
     } catch (err) {

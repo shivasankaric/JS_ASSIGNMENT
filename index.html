@@ -17,29 +17,12 @@
         <section id="content">
 
             <button onclick="createPopup()">Create new Album</button>
-
-                <div id="searchSort">
                     <form id="search" >
                         <input type="text" name="title" placeholder="Enter the title">
                         <button onclick="searchAlbum(event);" value="Search">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </button>
                     </form>
-
-                    <form id="sort" >
-                        <select name="keys">
-                            <option value="id">Id</option>
-                            <option value="title">Title</option>
-                            <option value="userId">User Id</option>
-                        </select>
-                        <button onclick="sortAlbums(event,'asc');" value="sortAsc">
-                            <i class="fa-solid fa-arrow-up-wide-short"></i>
-                        </button>
-                        <button onclick="sortAlbums(event,'desc');" value="sortDesc">
-                            <i class="fa-solid fa-arrow-down-wide-short"></i></i>
-                        </button>
-                    </form>
-                </div>
 
             <div id="list"></div>
 
@@ -80,7 +63,7 @@
 
             <div id="updatePopup" class="popup none">
                 <form id="updateAlbum" method="POST" onsubmit="createAlbum(event)">
-                    <h1>UPDATE THE NEW ALBUM</h1>
+                    <h1>UPDATE THE ALBUM</h1>
                     <table>
                             <tr>
                                 <td><label>ID</label></td>

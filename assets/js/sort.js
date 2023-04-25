@@ -1,9 +1,6 @@
 //Sort based on the key values
-const sortAlbums = (e,order) =>{
-    e.preventDefault();
+const sortAlbums = (prop,order) =>{
     displayLoading();
-
-    const prop = document.querySelector("#sort select").value;
 
     if(order === 'asc'){
         albumsData.sort((a,b) => a[prop] > b[prop] ? 1 : -1);
