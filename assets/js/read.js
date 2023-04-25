@@ -106,37 +106,6 @@ const displayTable = () =>{
     button.setAttribute("id", "load");
     button.addEventListener('click', loadAlbums);
     list.append(button);
-    // list.innerHTML =
-    // `<table id="albums">
-    //         <thead>
-    //             <tr>
-    //                 <th>
-    //                     Id
-    //                     <div class = "sortIcons">
-    //                             <i class="fa-solid fa-caret-up" onclick="sortAlbums('id','asc')"></i>
-    //                             <i class="fa-solid fa-caret-down" onclick="sortAlbums('id','desc')"></i>
-    //                     </div>
-    //                 </th>
-    //                 <th>
-    //                     Title
-    //                     <div class = "sortIcons">
-    //                             <i class="fa-solid fa-caret-up" onclick="sortAlbums('title','asc')"></i>
-    //                             <i class="fa-solid fa-caret-down" onclick="sortAlbums('title','desc')"></i>
-    //                     </div>
-    //                 </th>
-    //                 <th>
-    //                     User Id
-    //                     <div class = "sortIcons">
-    //                             <i class="fa-solid fa-caret-up" onclick="sortAlbums('userId','asc')"></i>
-    //                             <i class="fa-solid fa-caret-down" onclick="sortAlbums('userId','desc')"></i>
-    //                     </div>
-    //                 </th>
-    //                 <th colspan=3>Actions</th>
-    //             </tr>
-    //         </thead>
-    //         <tbody></tbody>
-    //     </table>
-    //     <button id="load" onclick="loadAlbums()">Load More</button>`;
 }
 
 //Update the table with the loaded albums
@@ -193,7 +162,7 @@ const loadAlbums = () => {
 
     if( start > end ) return;
 
-    for(let i=start;i<end;i++) {
+    for(let i = start;i < end;i++ ) {
         updateTable(albumsData[i]);
     }
 
@@ -210,7 +179,7 @@ const read = () => {
     displayTable();
     
     sortDesc();
-    for(let i=0;i<limit;i++) updateTable(albumsData[i]);
+    for(let i = 0;i < limit;i++ ) updateTable(albumsData[i]);
 
     document.getElementById("load").style.display = "block";
 }

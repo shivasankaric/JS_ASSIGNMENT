@@ -87,12 +87,24 @@ button, #popup form input[type="submit"]{
     justify-content: center;    
 }
 
+table#albums{
+    display: block;
+    max-height: 60vh;
+    overflow-y: scroll;
+    position: relative;
+}
+
 td{
     padding: 10px;    
 }
 
 table tr:nth-child(odd){
     background-color: var(--lighter);
+}
+
+table#albums thead{
+    position: sticky;
+    top: 0;
 }
 
 table#albums th{
