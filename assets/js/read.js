@@ -38,8 +38,10 @@ const displayTable = () =>{
     if(list.hasChildNodes()){
         const child1 = document.getElementById("albums");
         const child2 = document.getElementById("load");
+        const child3 = document.getElementById("backToList");
         list.removeChild(child1);
         list.removeChild(child2);
+        if(child3) list.removeChild(child3);
     }
 
 

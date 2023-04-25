@@ -2,16 +2,8 @@
 const deletePopup = (albumId) => {
     let deletePopup = document.getElementById("deletePopup");
     deletePopup.classList.add("flex");
-    deletePopup.innerHTML =
-    `<div>
-        <p>Are you sure you want to delete the album ?</p>
-        <div class="buttons">
-            <button onclick = "deleteAlbum(${albumId})">Yes</button>
-            <button onclick = "closeDeletePopUp()">No</button>
-        </div>
-        <i class="fa-solid fa-xmark" onclick="closeDeletePopUp()"></i>
-    </div>`;
-
+    const button = document.getElementById("deleteButton");
+    button.addEventListener('click', deleteAlbum.bind(null, albumId));
 }
 
 //Close popup form

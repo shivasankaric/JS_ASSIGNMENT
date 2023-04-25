@@ -83,7 +83,16 @@
                 </form>                
             </div>
 
-            <div id="deletePopup" class="popup none"></div>
+            <div id="deletePopup" class="popup none">
+                <div>
+                    <p>Are you sure you want to delete the album ?</p>
+                    <div class="buttons">
+                        <button id="deleteButton">Yes</button>
+                        <button onclick = "closeDeletePopUp()">No</button>
+                    </div>
+                    <i class="fa-solid fa-xmark" onclick="closeDeletePopUp()"></i>
+                </div>
+            </div>
 
             <div id="loading" class="none">
                 <div class="spinner"></div>

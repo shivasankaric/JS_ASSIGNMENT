@@ -19,7 +19,7 @@ const searchAlbum = (e) =>{
         document.getElementById("list").innerHTML = "<h1>Not found!</h>"
     }
 
-    document.getElementById("list").innerHTML += `<button onclick="read()">Back to list</button>`;
+    document.getElementById("list").innerHTML += `<button id="backToList" onclick="read()">Back to list</button>`;
     form.reset();  
     
 }
