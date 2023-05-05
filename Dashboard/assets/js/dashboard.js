@@ -1,5 +1,6 @@
 let barChart, pieChart, modalChart;
 
+//Draw pie chart on the modal
 const drawModalChart = (day, prop) =>{
   if(modalChart){
     modalChart.destroy();
@@ -24,6 +25,7 @@ const drawModalChart = (day, prop) =>{
   );
 }
 
+//Decide which pie chart to display based on the click event
 const modalPieChart = (event, clickedElements) => {
   if(clickedElements.length){
     console.log(clickedElements);
@@ -37,7 +39,7 @@ const modalPieChart = (event, clickedElements) => {
   } 
 }
 
-
+//Draw the bar chart
 const drawBarChart = ( prop ) => {
     if(barChart){
       barChart.destroy();
@@ -63,7 +65,7 @@ const drawBarChart = ( prop ) => {
     );
 }
 
-
+//Draw the pie chart
 const drawPieChart = ( prop ) => {
     if(pieChart){
       pieChart.destroy();
@@ -86,16 +88,19 @@ const drawPieChart = ( prop ) => {
     );
 }
 
-
+//Change the dataset for the chart based on the select option
 const dropDown = document.getElementById("dropDown");
 dropDown.addEventListener("change", () => {
   drawBarChart( dropDown.value );
   drawPieChart( dropDown.value);
 });
 
+//Close the modal that is opened
 const closeButton = document.getElementsByClassName("fa-times")[0];
 closeButton.addEventListener("click", () => document.getElementById("modal").classList.remove("flex"));
 
+
+//Display the bar chart and pie chart with the screentime data
 drawBarChart( "screenTime" );
 drawPieChart( "screenTime" );
 

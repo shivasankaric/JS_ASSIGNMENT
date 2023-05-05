@@ -15,18 +15,23 @@
     </nav>
 
     <main>
+        <!-- Dropdown to select which data to display in the chart -->
         <select id="dropDown">
           <option value="screenTime">Screen Time(Minutes)</option>
           <option value="notifications">Notifications received</option>
           <option value="timesOpened">Times opened</option>
         </select>
         
+        <!-- Charts container -->
         <div class="charts">
+
+          <!-- Bar chart -->
           <div class="chartContainer">
             <h1 class="desc">BAR CHART</h1>
             <canvas id="barchart"></canvas>
           </div>
 
+          <!-- Pie chart -->
           <div class="chartContainer">
             <h1 class="desc">PIE CHART</h1>
             <canvas id="doughnut"></canvas>
@@ -35,6 +40,8 @@
     </main>
 
     <div id="modal" class="none">
+
+      <!-- Pie chart for the modal -->
       <dialog class="chartContainer">
         <h1 id="desc"></h1>
         <canvas id="modalChart"></canvas>
