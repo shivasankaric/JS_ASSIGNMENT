@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./assets/css/style.css">
+  </head>
+  <body>
+
+    <nav>
+        <h1>DIGITAL WELL BEING DASHBOARD</h1>
+    </nav>
+
+    <main>
+        <select id="dropDown">
+          <option value="screenTime">Screen Time(Minutes)</option>
+          <option value="notifications">Notifications received</option>
+          <option value="timesOpened">Times opened</option>
+        </select>
+        
+        <div class="charts">
+          <div class="chartContainer">
+            <h1 class="desc">BAR CHART</h1>
+            <canvas id="barchart"></canvas>
+          </div>
+
+          <div class="chartContainer">
+            <h1 class="desc">PIE CHART</h1>
+            <canvas id="doughnut"></canvas>
+          </div>
+        </div>
+    </main>
+
+    <div id="modal" class="none">
+      <dialog class="chartContainer">
+        <h1 id="desc"></h1>
+        <canvas id="modalChart"></canvas>
+        <i class="fa fa-times" aria-hidden="true"></i>
+      </dia>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js"></script>
+    <script src="./assets/js/data.js"></script>
+    <script src="./assets/js/dashboard.js"></script>
+  </body>
+</html>
+

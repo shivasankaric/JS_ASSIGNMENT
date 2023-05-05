@@ -1,0 +1,125 @@
+:root{
+    --darker : #4C3D3D;
+    --dark : #C07F00;
+    --light : #FFD95A;
+    --lighter : #FFF7D4;
+    --white : #fff;
+}
+
+*{
+    margin: 0;
+}
+
+nav{
+    background-color: var(--darker);
+    color: var(--light);
+    padding: 2%;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#dropDown{
+    align-self: flex-start;
+    margin: 3%;
+    border: 0;
+    outline: 0;
+    padding: 1%;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+}
+
+#dropDown option{
+    background-color: var(--white);
+    color: var(--darker);
+}
+
+#dropDown option:hover{
+    background-color: var(--dark);
+    color: var(--lighter);
+}
+
+.charts{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+main h1{
+    color: var(--darker);
+}
+
+.chartContainer{
+    width:30vw; 
+    height: auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.chartContainer:nth-child(1){
+    width: 40vw;
+}
+
+.chartContainer h1{
+    color: var(--darker);
+    font-size: 1.3rem;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 5% auto;
+}
+
+#modal{
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(1px);
+    z-index: 1;
+}
+
+.none{
+    display: none;
+}
+
+.flex{
+    display: flex;
+}
+
+#modal .chartContainer{
+    background-color: var(--white);
+}
+
+#modal .fa-times{
+    position: absolute;
+    top: 3%;
+    right: 3%;
+    cursor: pointer;
+}
+
+@media screen and (max-width:768px) {
+    .charts{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .chartContainer{
+        width: 80vw;
+        height: auto;
+    }
+
+    .chartContainer:nth-child(1){
+        width: 80vw;
+    }
+}
