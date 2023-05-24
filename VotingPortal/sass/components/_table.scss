@@ -1,0 +1,35 @@
+@use "../theme";
+@use "../utilities" as utility;
+
+.result{
+    @include utility.flexCenter(column);
+    &__table{
+        margin-top: 5%;
+        width: 50vw;
+        border-collapse: collapse;
+        background-color: theme.$lighter;
+        @media screen and (max-width:600px){
+            width: 90vw;
+        }
+    }
+    &__rowHead{
+        background-color: theme.$darker;
+        color: theme.$lighter;
+    }
+    &__cell, &__head{
+        padding: 1%;
+        border: 1px solid theme.$darker;
+        text-align: center;
+    }
+    &__img{
+        width: 70px;
+        height: 70px;
+    }
+    &__button{
+        @extend %button;
+        padding: 2%;
+        margin: 2%;
+    }
+    
+}
+

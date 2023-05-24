@@ -1,0 +1,188 @@
+@use "./themes" as theme;
+@use "./utilities/" as utility;
+@use "./components/" as component;
+
+body{
+    margin: 0;
+}
+
+.none{ display: none;}
+.block{ display: block;}
+.flex{ display: flex;}
+
+#navbar{
+    background-color: theme.$dark;
+    color: theme.$lighter;
+    @include utility.flexCenter(row, space-between);
+    padding: 0 2rem;
+
+    @media screen and (max-width:768px) {
+        &{
+            @include utility.flexCenter(column, space-evenly);
+        }
+    }
+}
+
+
+#search{
+    width: 50%;
+    @include utility.flexCenter();
+}
+
+#search input, #search select, #search button{
+    height: 30px;
+    border: 1px solid theme.$darker;
+    outline: 0;
+}
+
+#search{
+    button{
+        margin: 0;
+        border-radius: 0;
+        width: fit-content;
+        border-left: 0px;
+    }
+}
+
+#list{
+    @include utility.flexCenter(column)
+}
+
+button{
+    @extend %buttonStyles;
+}
+
+#content, #list div{
+    @include utility.flexCenter();
+    flex-direction: column;
+        
+}
+
+table{
+    &#albums{
+        display: block;
+        max-height: 60vh;
+        overflow-y: scroll;
+        position: relative;
+
+        thead{
+            position: sticky;
+            top: 0;
+        }
+
+        th{
+            background-color: theme.$dark;
+            color: theme.$lighter;
+            text-align: center;
+            position: relative;
+            padding: 10px;
+
+            &:nth-child(odd){
+                width: 100px;
+            }
+            
+        }
+
+        .sortIcons{
+            position: absolute;
+            top:5px;
+            right: 10px;
+        }
+    }
+
+    td{
+        padding: 10px;
+    }
+}
+
+#load{
+    @extend .none;
+}
+
+// .popup, #loading{
+
+// }
+
+.popup{
+    @extend %overlay;
+    h1{
+        text-align: center;
+        color: theme.$darker;
+    }
+    form{
+        @extend %popupStyles;
+        input{
+            border: 0;
+            outline: 0;
+            width: 80%;
+            border-bottom: 1px solid theme.$darker;
+            background-color: theme.$lighter;
+
+            &[type="submit"]{
+                @extend %buttonStyles;
+            }
+        }
+    }
+}
+
+#viewPopup{
+    >div{
+        @extend %popupStyles;
+        table{
+            margin: 5%;
+            border-collapse: collapse;
+            
+            td{
+                border: 1px solid theme.$darker;
+            }
+        }
+
+        >img{
+            width: 100px;
+            height: 100px;
+            border-radius: 20px;
+        }
+    }
+}
+
+#deletePopup{
+    >div{
+        @extend %popupStyles;
+        min-height: 100px;
+        padding: 3%;
+    }
+
+    .buttons{
+        width: 100%;
+        @include utility.flexCenter();
+
+        button{
+            width: 40%;
+        }
+    }
+}
+
+#updateAlbum table td{
+    border: 0;
+}
+
+.fa{
+    &-xmark{
+        position: absolute;
+        top: 3%;
+        right: 3%;
+    }
+
+    &-trash-can{
+        color: #9c2017;
+    }
+
+    &-caret-up, &-caret-down, &-magnifying-glass {
+        color: theme.$lighter;
+    }
+}
+
+i{
+    cursor: pointer;
+    color: theme.$darker;
+}

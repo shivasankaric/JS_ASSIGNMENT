@@ -1,0 +1,21 @@
+@use "../themes" as theme;
+@use "../utilities";
+
+#loading{
+    background-color: rgba(0,0,0,0.4);
+    @extend %overlay;
+}
+
+.spinner{
+    width: 30px;
+    height: 30px;
+    border: 5px solid theme.$light;
+    border-top: 5px solid theme.$dark;
+    border-radius: 100%;
+    animation: spin 1s infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg)}
+    to { transform: rotate(360deg) }
+}

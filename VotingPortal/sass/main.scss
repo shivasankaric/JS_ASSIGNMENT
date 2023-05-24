@@ -1,0 +1,32 @@
+@use "./theme";
+@use "./components/" as component;
+@use "./utilities/" as utility;
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: theme.$light;
+}
+
+nav{
+    background-color: theme.$darker;
+    color: theme.$lighter;
+    padding: 1%;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+main{
+    min-height: 80vh;
+    @include utility.flexCenter(column);
+}
+
+#cards{
+    width: 250px;
+    overflow-x: hidden;
+    @include utility.flexCenter(row, flex-start);
+    scroll-behavior: smooth;
+}
+
+
+

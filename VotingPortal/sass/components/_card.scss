@@ -1,0 +1,45 @@
+@use "../theme";
+@use "../utilities/" as utility;
+
+.card{
+    @include utility.flexCenter();
+    width: 250px;
+    height: auto;
+    padding: 10%;
+    box-sizing: border-box;
+    flex-direction: column;
+    flex-shrink: 0;
+    position: relative;
+    background-color: #fff;    
+    border-radius: 10px ;
+    z-index: 1;
+
+    &__head{
+        width: 100%;
+        position: absolute;
+        top: 0;
+        height: 30%;
+        background-color: theme.$darker;
+        border-radius: 10px 10px 0 0;
+        z-index: -1;
+    }
+
+    &__img{
+        width: 100px;
+        height: 100px;
+    }
+
+    &__buttons{
+        width: 80%;
+        @include utility.flexCenter(row, space-evenly)
+    }
+
+    &__button{
+        @extend %button;
+    }
+}
+
+
+
+
+

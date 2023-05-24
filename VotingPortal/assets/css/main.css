@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+.result__button, .card__button {
+  background-color: #181823;
+  color: #E9F8F9;
+  border: 0;
+  outline: 0;
+  padding: 5%;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  height: auto;
+  padding: 10%;
+  box-sizing: border-box;
+  flex-direction: column;
+  flex-shrink: 0;
+  position: relative;
+  background-color: #fff;
+  border-radius: 10px;
+  z-index: 1;
+}
+.card__head {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  height: 30%;
+  background-color: #181823;
+  border-radius: 10px 10px 0 0;
+  z-index: -1;
+}
+.card__img {
+  width: 100px;
+  height: 100px;
+}
+.card__buttons {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.result {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.result__table {
+  margin-top: 5%;
+  width: 50vw;
+  border-collapse: collapse;
+  background-color: #E9F8F9;
+}
+@media screen and (max-width: 600px) {
+  .result__table {
+    width: 90vw;
+  }
+}
+.result__rowHead {
+  background-color: #181823;
+  color: #E9F8F9;
+}
+.result__cell, .result__head {
+  padding: 1%;
+  border: 1px solid #181823;
+  text-align: center;
+}
+.result__img {
+  width: 70px;
+  height: 70px;
+}
+.result__button {
+  padding: 2%;
+  margin: 2%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #C0EEF2;
+}
+
+nav {
+  background-color: #181823;
+  color: #E9F8F9;
+  padding: 1%;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+main {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#cards {
+  width: 250px;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  scroll-behavior: smooth;
+}
+
+/*# sourceMappingURL=main.css.map */
