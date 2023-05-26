@@ -64,8 +64,8 @@ const view = {
         if(id !== model.getLastEmpId()){
             view.slideRight();
         }else{
-            model.updateEmployees(model.employees);
-            model.storeEmployees(model.employees);
+            controller.updateEmployees(model.employees);
+            controller.storeEmployees(model.employees);
             controller.updateView( "result" );
         }
     }

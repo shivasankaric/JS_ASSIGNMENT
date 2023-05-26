@@ -1,12 +1,12 @@
 const controller = {
     init(){
         if(!localStorage.getItem("employees")){
-            model.updateEmployees(initialData);
+            this.updateEmployees(initialData);
             model.storeEmployees(initialData);
         }
         else{
             const employees = JSON.parse(localStorage.getItem("employees"));
-            model.updateEmployees(employees);
+            this.updateEmployees(employees);
         } 
         this.updateView( "poll" );
     },
@@ -19,6 +19,12 @@ const controller = {
         const empIndex = model.getEmployeeIndex( "empId", id);
         model.employees[empIndex].votes > 0 ? model.employees[empIndex].votes-- : 0;
         view.slide(id);
+    },
+    updateEmployees(data){
+        model.employees = data;
+    },
+    storeEmployees(data){
+        localStorage.setItem("employees", JSON.stringify(data));
     },
     updateView( content ){
         let viewContent;

@@ -13,11 +13,5 @@ const model = {
     getLastEmpId(){
         const lastEmpId = this.employees[ this.getNoOfEmployees() - 1].empId;
         return lastEmpId;
-    },
-    updateEmployees(data){
-        this.employees = data;
-    },
-    storeEmployees(data){
-        localStorage.setItem("employees", JSON.stringify(data));
     }
 }
