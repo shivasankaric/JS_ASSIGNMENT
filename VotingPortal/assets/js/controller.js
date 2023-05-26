@@ -10,7 +10,16 @@ const controller = {
         } 
         this.updateView( "poll" );
     },
-    bindEvents(){},
+    upVote( id ){
+        const empIndex = model.getEmployeeIndex( "empId", id);
+        model.employees[empIndex].votes++;
+        view.slide(id);
+    },
+    downVote( id ){
+        const empIndex = model.getEmployeeIndex( "empId", id);
+        model.employees[empIndex].votes > 0 ? model.employees[empIndex].votes-- : 0;
+        view.slide(id);
+    },
     updateView( content ){
         let viewContent;
         switch(content){

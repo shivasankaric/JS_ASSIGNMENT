@@ -1,15 +1,5 @@
 const model = {
     employees : [],
-    upVote( id ){
-        const empIndex = this.getEmployeeIndex( "empId", id);
-        this.employees[empIndex].votes++;
-        view.slide(id);
-    },
-    downVote( id ){
-        const empIndex = this.getEmployeeIndex( "empId", id);
-        this.employees[empIndex].votes > 0 ? this.employees[empIndex].votes-- : 0;
-        view.slide(id);
-    },
     getEmployees(){
         return this.employees;
     },

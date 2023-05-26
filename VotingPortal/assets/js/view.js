@@ -19,8 +19,8 @@ const view = {
                     <p>Emp Id: ${employee.empId}</p>
                     <p>${employee.name}</p>
                     <buttons class="card__buttons">
-                        <button class="card__button" onclick= model.upVote(${employee.empId})>Upvote</button>
-                        <button class="card__button" onclick= model.downVote(${employee.empId})>Downvote</button>
+                        <button class="card__button" onclick= controller.upVote(${employee.empId})>Upvote</button>
+                        <button class="card__button" onclick= controller.downVote(${employee.empId})>Downvote</button>
                     </buttons>
                 </div>
             `;
@@ -58,7 +58,6 @@ const view = {
         result.append(table);
 
         result.innerHTML += `<button class="result__button" onclick="location.reload()">Vote again</button>`;
-        
         return result;
     },
     slide(id){
